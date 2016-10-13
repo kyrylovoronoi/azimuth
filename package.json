@@ -1,0 +1,49 @@
+{
+  "name": "azimuth",
+  "version": "1.0.0",
+  "description": "",
+  "main": "gulpfile.js",
+  "dependencies": {
+    "gulp": "^4.0.0-alpha.2"
+  },
+  "devDependencies": {
+    "browser-sync": "^2.17.3",
+    "del": "^2.2.2",
+    "gulp-autoprefixer": "^3.1.1",
+    "gulp-cached": "^1.1.0",
+    "gulp-cheerio": "^0.6.2",
+    "gulp-clean-css": "^2.0.13",
+    "gulp-concat": "^2.6.0",
+    "gulp-debug": "^2.1.2",
+    "gulp-if": "^2.0.1",
+    "gulp-imagemin": "^3.0.3",
+    "gulp-inject": "^4.1.0",
+    "gulp-less": "^3.1.0",
+    "gulp-less-import": "^1.0.0",
+    "gulp-load-plugins": "^1.3.0",
+    "gulp-newer": "^1.3.0",
+    "gulp-notify": "^2.2.0",
+    "gulp-remember": "^0.3.1",
+    "gulp-rename": "^1.2.2",
+    "gulp-rewrite-css": "0.0.9",
+    "gulp-sftp": "^0.1.5",
+    "gulp-size": "^2.1.0",
+    "gulp-sourcemaps": "^1.7.3",
+    "gulp-svg-sprite": "^1.3.6",
+    "gulp-svgmin": "^1.2.3",
+    "gulp-svgstore": "^6.0.0",
+    "gulp-uglify": "^2.0.0",
+    "gulp-useref": "^3.1.2",
+    "gulp-watch": "^4.3.10",
+    "multipipe": "^1.0.1",
+    "newer": "^0.1.5",
+    "path": "^0.12.7",
+    "stream-combiner2": "^1.1.1",
+    "wiredep": "^4.0.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}

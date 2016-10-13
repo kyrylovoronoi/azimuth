@@ -1,0 +1,205 @@
+﻿<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8"/>
+    <title>Azimuth</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="shortcut icon" href="img/favicon/favicon.ico" type="image/x-icon"/>
+    <link href="https://fonts.googleapis.com/css?family=PT+Serif:400,400i,700,700i" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800" rel="stylesheet">
+    <link href="libs/normalize.css" rel="stylesheet"/>
+    <link href="less/styles.less" rel="stylesheet/less"/>
+</head>
+
+<body>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="display:none">
+    <symbol id="comment" viewBox="0 0 76 76">
+        <path d="M74 5H2c-1.1 0-2 0.9-2 2v48c0 1.1 0.9 2 2 2h16v12c0 1.8 2.1 2.7 3.4 1.4l13.6-13.4h39c1.1 0 2-0.9 2-2v-48C76 5.9 75.1 5 74 5zM72 53H34.2c-0.5 0-1 0.2-1.4 0.6L22 64.2v-9.2c0-1.1-0.9-2-2-2H4v-44h68V53z"/>
+    </symbol>
+    <symbol id="more" viewBox="0 0 490.2 490.2">
+        <path d="M341.1 34.3h90.5l-206.9 207c-6.7 6.7-6.7 17.6 0 24.3 3.3 3.3 7.7 5 12.1 5s8.8-1.7 12.1-5l207-207v90.5c0 9.5 7.7 17.2 17.1 17.2 9.5 0 17.2-7.7 17.2-17.2V17.2C490.2 7.7 482.5 0 473 0H341.1c-9.5 0-17.2 7.7-17.2 17.2C324 26.6 331.6 34.3 341.1 34.3z"/>
+        <path d="M102.9 490.2h284.3c56.8 0 102.9-46.2 102.9-102.9V253.4c0-9.5-7.7-17.1-17.2-17.1s-17.1 7.7-17.1 17.1v133.8c0 37.8-30.8 68.6-68.6 68.6H102.9c-37.8 0-68.6-30.8-68.6-68.6V161.4 103c0-37.8 30.8-68.6 68.6-68.6h132.7c9.5 0 17.1-7.7 17.1-17.2S245 0 235.6 0H102.9C46.1 0 0 46.2 0 102.9v58.4 225.9C0 444 46.2 490.2 102.9 490.2z"/>
+    </symbol>
+    <symbol id="twitter" viewBox="0 0 410.2 410.2">
+        <path d="M403.6 74.2c-9.1 4-18.6 7.2-28.3 9.5 10.7-10.2 18.7-22.9 23.3-37.1l0 0c1.3-4.1-3.1-7.6-6.8-5.4l0 0c-13.5 8-28 14-43.2 17.9 -0.9 0.2-1.8 0.3-2.7 0.3 -2.8 0-5.5-1-7.6-2.9 -16.2-14.2-36.9-22.1-58.5-22.1 -9.3 0-18.8 1.5-28 4.3 -28.7 8.9-50.8 32.5-57.7 61.7 -2.6 10.9-3.3 21.9-2.1 32.6 0.1 1.2-0.4 2.1-0.8 2.5 -0.6 0.7-1.5 1.1-2.4 1.1 -0.1 0-0.2 0-0.3 0 -62.8-5.8-119.4-36.1-159.4-85.1l0 0c-2-2.5-6-2.2-7.6 0.6l0 0C13.7 65.6 9.5 80.9 9.5 96.6c0 24 9.6 46.6 26.4 63 -7-1.7-13.8-4.3-20.2-7.8l0 0c-3.1-1.7-6.8 0.5-6.9 4l0 0c-0.4 35.6 20.4 67.3 51.6 81.6 -0.6 0-1.3 0-1.9 0 -5 0-10-0.5-14.9-1.4l0 0c-3.4-0.7-6.3 2.6-5.3 6l0 0c10.1 31.7 37.4 55 70 60.3 -27.1 18.2-58.6 27.8-91.4 27.8l-10.2 0c-3.2 0-5.8 2.1-6.6 5.1 -0.8 3 0.7 6.2 3.4 7.7 37 21.5 79.1 32.9 122 32.9 37.5 0 72.5-7.4 104.2-22.1 29-13.4 54.7-32.7 76.3-57.1 20.1-22.8 35.8-49.1 46.7-78.2 10.4-27.7 15.9-57.3 15.9-85.6v-1.3c0-4.5 2.1-8.8 5.6-11.7 13.6-11 25.4-24 35.2-38.6l0 0C411.9 77.1 407.9 72.3 403.6 74.2L403.6 74.2z"/>
+    </symbol>
+    <symbol id="facebook" viewBox="0 0 470.5 470.5">
+        <path d="M271.5 154.2v-40.5c0-6.1 0.3-10.8 0.8-14.1 0.6-3.3 1.9-6.6 3.9-9.9 2-3.2 5.2-5.5 9.7-6.7 4.5-1.2 10.4-1.9 17.9-1.9h40.5V0h-64.8c-37.5 0-64.4 8.9-80.8 26.7 -16.4 17.8-24.6 44-24.6 78.7v48.8h-48.5v81.1h48.5v235.3h97.4V235.3h64.8l8.6-81.1H271.5z"/>
+    </symbol>
+    <symbol id="instagram" viewBox="0 0 510 510">
+        <path d="M459 0H51C23 0 0 23 0 51v408c0 28.1 23 51 51 51h408c28.1 0 51-22.9 51-51V51C510 23 487.1 0 459 0zM255 153c56.1 0 102 45.9 102 102 0 56.1-45.9 102-102 102 -56.1 0-102-45.9-102-102C153 198.9 198.9 153 255 153zM63.8 459C56.1 459 51 453.9 51 446.3V229.5h53.6C102 237.2 102 247.4 102 255c0 84.2 68.9 153 153 153 84.2 0 153-68.8 153-153 0-7.6 0-17.8-2.5-25.5H459v216.8c0 7.7-5.1 12.8-12.7 12.8H63.8zM459 114.8c0 7.7-5.1 12.8-12.7 12.8h-51c-7.6 0-12.7-5.1-12.7-12.7v-51c0-7.6 5.1-12.7 12.8-12.7h51C453.9 51 459 56.1 459 63.8V114.8z"/>
+    </symbol>
+</svg>
+
+
+<div class="wrapper">
+    <aside class="main_leftside">
+        <div class="logo_wrap">
+            <a href="" class="logo">
+                <img src="img/logo.png" alt="">
+                <span>waterwhy</span>
+            </a>
+        </div>
+        <nav>
+            <ul class="menu">
+                <li><a class="menu__item" href="#">About</a></li>
+                <li><a class="menu__item" href="#">Discussions</a></li>
+                <li><a class="menu__item" href="#">Recent Posts</a></li>
+                <li><a class="menu__item" href="#">Archieve</a></li>
+                <li><a class="menu__item" href="#">Team</a></li>
+                <li><a class="menu__item" href="#">Eco Store</a></li>
+                <li><a class="menu__item" href="#">Contact</a></li>
+            </ul>
+        </nav>
+        <div class="social">
+            <a class="social__item" href="">
+                <svg class="social__item_pic">
+                    <title>more</title>
+                    <use xlink:href="#instagram"></use>
+                </svg>
+            </a>
+            <a class="social__item" href="">
+                <svg class="social__item_pic">
+                    <title>more</title>
+                    <use xlink:href="#twitter"></use>
+                </svg>
+            </a>
+            <a class="social__item" href="">
+                <svg class="social__item_pic">
+                    <title>more</title>
+                    <use xlink:href="#facebook"></use>
+                </svg>
+            </a>
+        </div>
+    </aside>
+    <section class="main_center">
+        <section class="slider">
+            <div class="slider__info">
+                <div class="slider__date">jul 30, 2014</div>
+                <div class="slider__replies">
+                    <img class="slider__replies_pic" src="img/comment.png" alt="">
+                    108 Replies
+                </div>
+            </div>
+            <h2 class="slider__header">Water-Main Break Floods UCLA. What Really Happend?</h2>
+            <div class="slider__quote">“Praesent at tincidunt dui. Etiam nec pharetra lorem, id cursus risus. Integer quis elit quis orci laoreet euismod.”</div>
+            <div class="slider__author">
+                <div class="slider__author__foto">
+                    <img src="img/slider_face1.png" alt="picture">
+                </div>
+                <div class="slider__author__name"><span>Jonny Lawrence</span><br>Art Director, Britannica Studio</div>
+            </div>
+        </section>
+        <section class="content">
+            <div class="content__block_wrapper">
+                <article class="content__block content__post1">
+                    <div class="post1__date">july 30, 2014</div>
+                    <h3 class="post1__header">
+                        <span>photo</span><br> of the day
+                    </h3>
+                    <div class="post1__more">
+                        <svg class="content_block__more_pic">
+                            <title>more</title>
+                            <use xlink:href="#more"></use>
+                        </svg>
+                        more detailes
+                    </div>
+                </article>
+                <article class="content__block content__post2 content_block__info_top">
+                    <h3 class="content_block__header">Yellowstone's<br>Water<br>"Secrets"</h3>
+                    <p class="content_block__text">In egestas nulla vitae nulla rhoncus, quis vulputate ipsum eleifend.
+                        Integer nibh est, porta at ultricies hendrerit, aliquam id metus.</p>
+                    <div class="content_block__info">
+                        <div class="content_block__date">jul 30, 2014</div>
+                        <div class="content_block__replies">
+                            <img class="content_block__comment_pic" src="img/comment.png" alt="picture">
+                            82 Replies
+                        </div>
+                    </div>
+                </article>
+                <article class="content__block content__post3 content_block__info_bottom">
+                    <h3 class="content_block__header">Where Is Earth's
+                        Freshwater?</h3>
+                    <div class="content_block__info">
+                        <div class="content_block__date">jul 30, 2014</div>
+                        <div class="content_block__replies">
+                            <img class="content_block__comment_pic" src="img/comment.png" alt="picture">
+                            82 Replies
+                        </div>
+                    </div>
+                </article>
+                <article class="content__block content__post4">
+                    <div class="post4__left">
+                        <svg class="post4__logo">
+                            <title>more</title>
+                            <use xlink:href="#twitter"></use>
+                        </svg>
+                    </div>
+                    <div class="post4__right">
+                        <div class="post4__sign">@NatGeo</div>
+                        <div class="post4__text">Aliquam tempus lectus sed nibh gravida, sed scelerisque enim
+                            vestibulum. Praesent at diam ut nisi ultrices adipiscing.
+                        </div>
+                        <div class="post4__btn_follow" role="button">follow</div>
+                    </div>
+                </article>
+                <article class="content__block content__post5 content_block__info_top">
+                    <h3 class="content_block__header">Is Collapse of<br>Civilizations<br>Explained?</h3>
+                    <p class="content_block__text">In egestas nulla vitae nulla rhoncus, quis vulputate ipsum eleifend.
+                        Integer nibh est, porta at ultricies hendrerit, aliquam id metus.</p>
+                    <div class="content_block__info">
+                        <div class="content_block__date">jul 30, 2014</div>
+                        <div class="content_block__replies">
+                            <img class="content_block__comment_pic" src="img/comment.png" alt="picture">
+                            82 Replies
+                        </div>
+                    </div>
+                </article>
+                <article class="content__block content__post6 content_block__info_bottom">
+                    <h3 class="content_block__header">What You Don't<br> Know About<br> <span>Food</span>,
+                        <span>Water</span>,<br> & <span>Energy</span></h3>
+                    <div class="content_block__info">
+                        <div class="content_block__date">jul 30, 2014</div>
+                        <div class="content_block__replies">
+                            <img class="content_block__comment_pic" src="img/comment.png" alt="picture">
+                            82 Replies
+                        </div>
+                    </div>
+                </article>
+                <article class="content__block content__post7 content_block__info_bottom">
+                    <h3 class="content_block__header">Sustainable Earth:Water</h3>
+                    <div class="content_block__info">
+                        <div class="content_block__date">jul 30, 2014</div>
+                        <div class="content_block__replies">
+                            <img class="content_block__comment_pic" src="img/comment.png" alt="picture">
+                            6 Replies
+                        </div>
+                    </div>
+                </article>
+                <article class="content__block content__post8 content_block__info_bottom">
+                    <h3 class="content_block__header">Why Care About Water?</h3>
+                    <div class="content_block__info">
+                        <div class="content_block__date">jul 30, 2014</div>
+                        <div class="content_block__replies">
+                            <img class="content_block__comment_pic" src="img/comment.png" alt="picture">
+                            59 Replies
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+    </section>
+</div>
+
+<footer class="main_footer">
+    <div>&copy; WaterWhy, 2014. All rights reserved. Done by Olia Gozha</div>
+</footer>
+
+<script src="libs/jquery-3.1.0.min.js"></script>
+<script src="libs/less.min.js"></script>
+<script src="js/script.js"></script>
+
+</body>
+</html>

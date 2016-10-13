@@ -1,0 +1,25 @@
+{
+    "name": "test_js",
+    "version": "0.1.0",
+    "authors": [
+        "Kyrylo Voronoi <voronoy88@bk.ru>"
+    ],
+    "description": "",
+    "main": "",
+    "license": "MIT",
+    "homepage": "",
+    "ignore": [
+        "**/.*",
+        "node_modules",
+        "bower_components",
+        "test",
+        "tests"
+    ],
+    "dependencies": {
+        "jquery": "latest",
+        "normalize-css": "latest"
+    },
+    "devDependencies": {
+        "less": "latest"
+    }
+}
