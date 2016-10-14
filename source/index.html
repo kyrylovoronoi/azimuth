@@ -11,6 +11,7 @@
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800" rel="stylesheet">
     <link href="libs/normalize.css" rel="stylesheet"/>
     <!--<link href="css/styles.css" rel="stylesheet"/>-->
+
     <link href="less/styles.less" rel="stylesheet/less"/>
 </head>
 
@@ -36,63 +37,88 @@
 
 
 <div class="wrapper">
-    <!--<aside class="main_leftside">-->
-        <!--<div class="logo_wrap">-->
-            <!--<a href="#" class="logo">-->
-                <!--<img src="img/logo.png" alt="">-->
-                <!--<span>waterwhy</span>-->
-            <!--</a>-->
-        <!--</div>-->
-        <!--<nav>-->
-            <!--<ul class="menu">-->
-                <!--<li><a class="menu__item" href="#">About</a></li>-->
-                <!--<li><a class="menu__item" href="#">Discussions</a></li>-->
-                <!--<li><a class="menu__item" href="#">Recent Posts</a></li>-->
-                <!--<li><a class="menu__item" href="#">Archieve</a></li>-->
-                <!--<li><a class="menu__item" href="#">Team</a></li>-->
-                <!--<li><a class="menu__item" href="#">Eco Store</a></li>-->
-                <!--<li><a class="menu__item" href="#">Contact</a></li>-->
-            <!--</ul>-->
-        <!--</nav>-->
-        <!--<div class="social">-->
-            <!--<a class="social__item" href="#">-->
-                <!--<svg class="social__item_pic">-->
-                    <!--<title>more</title>-->
-                    <!--<use xlink:href="#instagram"></use>-->
-                <!--</svg>-->
-            <!--</a>-->
-            <!--<a class="social__item" href="#">-->
-                <!--<svg class="social__item_pic">-->
-                    <!--<title>more</title>-->
-                    <!--<use xlink:href="#twitter"></use>-->
-                <!--</svg>-->
-            <!--</a>-->
-            <!--<a class="social__item" href="#">-->
-                <!--<svg class="social__item_pic">-->
-                    <!--<title>more</title>-->
-                    <!--<use xlink:href="#facebook"></use>-->
-                <!--</svg>-->
-            <!--</a>-->
-        <!--</div>-->
-    <!--</aside>-->
+    <aside class="main_leftside">
+        <div class="logo_wrap">
+            <a href="#" class="logo">
+                <img src="img/logo.png" alt="">
+                <span>waterwhy</span>
+            </a>
+        </div>
+        <span class="menu_icon closed"></span>
+        <nav class="menu_container closed">
+            <ul class="menu">
+                <li><a class="menu__item" href="#">About</a></li>
+                <li><a class="menu__item" href="#">Discussions</a></li>
+                <li><a class="menu__item" href="#">Recent Posts</a></li>
+                <li><a class="menu__item" href="#">Archieve</a></li>
+                <li><a class="menu__item" href="#">Team</a></li>
+                <li><a class="menu__item" href="#">Eco Store</a></li>
+                <li><a class="menu__item" href="#">Contact</a></li>
+            </ul>
+        </nav>
+        <div class="social">
+            <a class="social__item" href="#">
+                <svg class="social__item_pic">
+                    <title>more</title>
+                    <use xlink:href="#instagram"></use>
+                </svg>
+            </a>
+            <a class="social__item" href="#">
+                <svg class="social__item_pic">
+                    <title>more</title>
+                    <use xlink:href="#twitter"></use>
+                </svg>
+            </a>
+            <a class="social__item" href="#">
+                <svg class="social__item_pic">
+                    <title>more</title>
+                    <use xlink:href="#facebook"></use>
+                </svg>
+            </a>
+        </div>
+    </aside>
     <section class="main_center">
-        <section class="slider">
-            <div class="slider__info">
-                <div class="slider__date">jul 30, 2014</div>
-                <div class="slider__replies">
-                    <img class="slider__replies_pic" src="img/comment.png" alt="">
-                    108 Replies
+        <div class="slider">
+            <div class="slide1 slide">
+                <div class="slider__info">
+                    <div class="slider__date">jul 30, 2014</div>
+                    <div class="slider__replies">
+                        <img class="slider__replies_pic" src="img/comment.png" alt="">
+                        108 Replies
+                    </div>
+                </div>
+                <h2 class="slider__header">Water-Main Break Floods UCLA. What Really Happend?</h2>
+                <div class="slider__quote">“Praesent at tincidunt dui. Etiam nec pharetra lorem, id cursus risus.
+                    Integer quis elit quis orci laoreet euismod.”
+                </div>
+                <div class="slider__author">
+                    <div class="slider__author__foto">
+                        <img src="img/slider_face1.png" alt="picture">
+                    </div>
+                    <div class="slider__author__name"><span>Jonny Lawrence</span><br>Art Director, Britannica Studio
+                    </div>
                 </div>
             </div>
-            <h2 class="slider__header">Water-Main Break Floods UCLA. What Really Happend?</h2>
-            <div class="slider__quote">“Praesent at tincidunt dui. Etiam nec pharetra lorem, id cursus risus. Integer quis elit quis orci laoreet euismod.”</div>
-            <div class="slider__author">
-                <div class="slider__author__foto">
-                    <img src="img/slider_face1.png" alt="picture">
-                </div>
-                <div class="slider__author__name"><span>Jonny Lawrence</span><br>Art Director, Britannica Studio</div>
-            </div>
-        </section>
+            <!--<div class="slide2 slide">-->
+                <!--<div class="slider__info">-->
+                    <!--<div class="slider__date">jul 30, 2014</div>-->
+                    <!--<div class="slider__replies">-->
+                        <!--<img class="slider__replies_pic" src="img/comment.png" alt="">-->
+                        <!--16 Replies-->
+                    <!--</div>-->
+                <!--</div>-->
+                <!--<h2 class="slider__header">Who Owns the Rain?</h2>-->
+                <!--<div class="slider__quote">“Aliquam tempus lectus sed nibh gravida, sed scelerisque enim vestibulum. Praesent at diam ut nisi ultrices adipiscing.”-->
+                <!--</div>-->
+                <!--<div class="slider__author">-->
+                    <!--<div class="slider__author__foto">-->
+                        <!--<img src="img/slider_face1.png" alt="picture">-->
+                    <!--</div>-->
+                    <!--<div class="slider__author__name"><span>Jonny Lawrence</span><br>Art Director, Britannica Studio-->
+                    <!--</div>-->
+                <!--</div>-->
+            <!--</div>-->
+        </div>
         <section class="content">
             <div class="content__block_wrapper">
                 <article class="content__block content__post1">
@@ -100,13 +126,13 @@
                     <h3 class="post1__header">
                         <span>photo</span><br> of the day
                     </h3>
-                    <div class="post1__more">
+                    <a href="img/pic1.jpg" class="post1__more">
                         <svg class="content_block__more_pic">
                             <title>more</title>
                             <use xlink:href="#more"></use>
                         </svg>
                         more detailes
-                    </div>
+                    </a>
                 </article>
                 <article class="content__block content__post2 content_block__info_top">
                     <h3 class="content_block__header">Yellowstone's<br>Water<br>"Secrets"</h3>
@@ -198,9 +224,15 @@
     <div>&copy; WaterWhy, 2014. All rights reserved. Done by Olia Gozha</div>
 </footer>
 
-<script src="libs/jquery-3.1.0.min.js"></script>
+
+<script src="libs/jquery-1.11.2.min.js"></script>
 <script src="libs/less.min.js"></script>
+<link rel="stylesheet" href="libs/fancybox/jquery.fancybox-1.3.4.css" type="text/css" media="screen"/>
+<script src="libs/fancybox/jquery.fancybox-1.3.4.pack.js"></script>
+
+
 <script src="js/script.js"></script>
+
 
 </body>
 </html>
