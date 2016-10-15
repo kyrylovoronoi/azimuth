@@ -38,6 +38,7 @@
     "multipipe": "^1.0.1",
     "newer": "^0.1.5",
     "path": "^0.12.7",
+    "pump": "^1.0.1",
     "stream-combiner2": "^1.1.1",
     "wiredep": "^4.0.0"
   },

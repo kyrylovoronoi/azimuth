@@ -1,5 +1,7 @@
-﻿(function () {
-    "use strict";
+﻿'use strict';
+
+(function () {
+
 
     const gulp = require("gulp");
     const path = require('path');
@@ -21,6 +23,7 @@
     const rename = require('gulp-rename');
     const cleanCss = require('gulp-clean-css');
     const uglify = require('gulp-uglify');
+    const pump = require('pump');
     //const googlecdn = require('gulp-google-cdn');
     const wiredep = require('wiredep').stream;
     const sftp = require('gulp-sftp');
@@ -48,15 +51,14 @@
     //    }));
     //});
 
-
     //удаление всех файлов
     gulp.task("clean", function () {
         return del("public");
     });
 
-    gulp.task("css", function () {
+    gulp.task("less", function () {
         return combine(
-          gulp.src("source/less/**/styles.less"),
+          gulp.src("source/less/**/*.less"),
           //debug({title:"***src***"}),
           //rewriteCSS({destination: 'build/css'}),
           cached("css"),
@@ -74,42 +76,13 @@
               showFiles: true,
               showTotal: false
           }),
-          gulp.dest('build/css')
+          gulp.dest('source/css')
         ).on('error', notify.onError(function (err) {
             return {
                 title: '\n\nCSS ERROR in ' + err.lineNumber + ' line:\n\n',
                 message: 'MESSAGE: ' + err.message
             };
         }));
-    });
-
-    //('---------- СБОРКА HTML');
-    gulp.task("html", function () {
-        return gulp.src(["source/*.html", 'source/html/*.html'], { since: gulp.lastRun("html") })
-          .pipe(newer("public"))
-          //.pipe(debug({title:"HTML"}))
-          //.pipe(useref()) 
-          //.pipe(!gulpIf('*.css', cleanCss()))
-          //.pipe(!gulpIf('*.js', uglify()))
-          .pipe(size({
-              title: 'Размер-------------------:',
-              showFiles: true,
-              showTotal: false
-          }))
-          .pipe(gulp.dest("build"));
-    });
-
-    //('---------- Работа с png,jpg,gif');
-    gulp.task('img', function () {
-        return gulp.src('source/img/**/*.{png,jpg,gif,svg}', { since: gulp.lastRun('img') })
-          .pipe(newer('public/img'))
-          .pipe(imagemin())
-          .pipe(size({
-              title: 'Размер-------------------',
-              showFiles: true,
-              showTotal: false
-          }))
-          .pipe(gulp.dest('build/img'));
     });
 
     gulp.task('svg', function () {
@@ -165,13 +138,81 @@
             .pipe(inject(svgs, { transform: fileContents }))
             .pipe(gulp.dest('source'));
     });
+    gulp.task("html", function () {
+        return gulp.src(["source/*.html", 'source/html/**/*.*'], { since: gulp.lastRun("html") })
+          .pipe(newer("build"))
+          //.pipe(debug({title:"HTML"}))
+          //.pipe(useref()) 
+          //.pipe(!gulpIf('*.css', cleanCss()))
+          //.pipe(!gulpIf('*.js', uglify()))
+          .pipe(size({
+              title: 'Размер-------------------:',
+              showFiles: true,
+              showTotal: false
+          }))
+          .pipe(gulp.dest("build"));
+    });
+    gulp.task("css", function () {
+        return gulp.src(['source/css/**/*.*'], { since: gulp.lastRun("css") })
+            .pipe(newer("build/css"))
+            .pipe(gulpIf(true, sourcemaps.write()))
+            .pipe(gulpIf(true, cleanCss()))
+            //.pipe(gulpIf(true, rename('styles.min.css')))
+            .pipe(size({
+                title: 'Размер-------------------:',
+                showFiles: true,
+                showTotal: false
+            }))
+            .pipe(gulp.dest("build/css"));
+    });
+    gulp.task("js", gulp.series(
+    function () {
+        return gulp.src(['source/js/**/*.*'], { since: gulp.lastRun("js") })
+            .pipe(newer("build/js"))
+            .pipe(size({
+                title: 'Размер-------------------:',
+                showFiles: true,
+                showTotal: false
+            }))
+            .pipe(gulp.dest("build/js"));
+    },
+    function (cb) {
+        pump([
+              gulp.src('build/js/*.js'),
+              uglify(),
+              gulp.dest('build/js')
+        ], cb);
+    }
+    ));
+    gulp.task('img', function () {
+        return gulp.src('source/img/**/*.{png,jpg,gif,svg,ico}', { since: gulp.lastRun('img') })
+          .pipe(newer('build/img'))
+          .pipe(imagemin())
+          .pipe(size({
+              title: 'Размер-------------------',
+              showFiles: true,
+              showTotal: false
+          }))
+          .pipe(gulp.dest('build/img'));
+    });
+    gulp.task("libs", function () {
+        return gulp.src(['source/libs/**/*.*'], { since: gulp.lastRun("libs") })
+          .pipe(newer("build/libs"))
+          .pipe(size({
+              title: 'Размер-------------------:',
+              showFiles: true,
+              showTotal: false
+          }))
+          .pipe(gulp.dest("build/libs"));
+    });
 
-    // Сборка проекта
-    gulp.task('build', gulp.series('clean', 'svg', gulp.parallel('css', 'html', 'img')));
+
+
+    gulp.task('build', gulp.series('clean', gulp.parallel('html', 'css', 'js', 'img', 'libs')));
 
     // Слежение изменений
     gulp.task('watch', function () {
-        gulp.watch('source/less/*.less', gulp.series('css')).on('unlink', function (filepath) {
+        gulp.watch('source/less/*.less', gulp.series('less')).on('unlink', function (filepath) {
             //обработчик для того чтобы забыть cach файла если тот был удален
             remember.forget('rememberCacheName', path.resolve(filepath));
         });
@@ -187,14 +228,13 @@
         browserSync.watch('source/**/*.*').on('change', browserSync.reload);
     });
 
-    // Сборка проекта и запуск сервера для слежения изменений
-    // gulp.task('dev', gulp.series('build', gulp.parallel('watch', 'serve')));
 
-    gulp.task('local', gulp.parallel('watch', 'serve'));
+    // gulp.task('qwe', gulp.series('build', gulp.parallel('watch', 'serve')));
+    gulp.task('dev', gulp.parallel('watch', 'serve'));
 
     //по умолчанию
     gulp.task('default',
-      gulp.series('local')
+      gulp.series('dev')
     );
 
 })();
